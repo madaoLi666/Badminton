@@ -1,0 +1,25 @@
+$border-color: #000000
+$text-color: red
+
+@mixin bordered($borderColor: #000)
+  border-top: solid 1px $borderColor
+  border-bottom: solid 1px $borderColor
+
+%message-shared
+  border: 1px solid #ccc
+  padding: 5px
+
+.main
+  .header
+    color: $text-color
+    @include bordered(#101010)
+  .content
+    .message
+      .warning
+        @extend %message-shared
+        color: yellow
+      .error
+        @extend %message-shared
+        color: red
+
+  
